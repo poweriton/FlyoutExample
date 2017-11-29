@@ -7,6 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -17,6 +18,7 @@
     </environment>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -37,17 +39,62 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - FlyoutExample</p>
-        </footer>
+
+
+    <div id="sidebar-flyout-menu">
+        <div id="sidebar-flyout-mySidenav" class="sidebar-flyout-sidenav">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title pull-left">
+                        Title
+                    </h3>
+                    <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()">&times;</a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+           
+                    <div class=".sidebar-flyout-menu-content">
+                        content
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="sidebar-flyout-outer-div">
+        <div class="sidebar-flyout-middle-div">
+            <div class="sidebar-flyout-left">
+                <div class="sidebar-flyout-item" data-ph-ajax-path="testurl1" data-toggle="tooltip" data-placement="left" title="Cases" data-ph-sidebar-title="Recent Cases" data-ph-sidebar-icon="fa-recycle" style="background-color:forestgreen;">
+                    <span class="fa fa-2x fa-recycle"></span>
+                    Recent Cases
+                </div>
+                <div class="sidebar-flyout-item active" data-ph-ajax-path="testurl1" data-toggle="tooltip" data-placement="left" title="Notifications" data-ph-sidebar-title="Notification" data-ph-sidebar-icon="fa-bell" style="background-color:darkblue;">
+                    <span class="fa fa-2x fa-bell"></span>
+                    Notifications
+                </div>
+                <div class="sidebar-flyout-item" data-ph-ajax-path="testurl1" data-toggle="tooltip" data-placement="left" title="Communications" data-ph-sidebar-title="Communications" data-ph-sidebar-icon="fa-phone" style="background-color:orangered;">
+                    <span class="fa fa-2x fa-phone"></span>
+                    Communications
+                </div>
+                <div class="sidebar-flyout-item" data-ph-ajax-path="testurl1" data-toggle="tooltip" data-placement="left" title="Tasks" data-ph-sidebar-title="Tasks" data-ph-sidebar-icon="fa-pencil" style="background-color:darkred;">
+                    <span class="fa fa-2x fa-pencil"></span>
+                    Tasks
+                </div>
+            </div>
+        </div>
     </div>
+    </div>
+
+
+    <div class="container panel-body">
+        @RenderBody()
+    </div>
+
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/scotchPanels/src/scotchPanels.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
@@ -63,9 +110,12 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
+
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
+
+
 </body>
 </html>
